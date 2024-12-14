@@ -10,8 +10,11 @@ import java.util.UUID;
 @RequestMapping("/auth")
 public class RefreshTokenController {
 
-    @Autowired
-    private RefreshTokenService refreshTokenService;
+    private final RefreshTokenService refreshTokenService;
+
+    public RefreshTokenController(RefreshTokenService refreshTokenService) {
+        this.refreshTokenService = refreshTokenService;
+    }
 
     public static class Token {
         public String accessToken;
